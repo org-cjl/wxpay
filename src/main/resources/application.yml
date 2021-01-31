@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    context-path: ${context_path:/component}
+    session:
+      timeout: 3600
+
+spring:
+  application: 
+    name: @artifactId@
+  profiles:
+    active: ${profile_active:dev}
+  servlet:
+    multipart:
+      maxFileSize: 10MB  # 文件上传
+      maxRequestSize: 10MB
+
+# 日志
+logging:
+  level:
+    root: ${log_level:info}
+
+  config: classpath:logback-spring.xml
+  file:
+    path: ./logs
+
+wx:
+  pay:
+    sp:
+      appId: 1
+      mchId: 2
+      mchKey: kda
+      subAppId: 11
+      subMchId: 12
+      keyPath: classpath:/cert/cert.p12
+
+  ma:
+    appId: 122
+    secret: fla
+    token: jjk
+    aesKey: dad

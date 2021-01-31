@@ -1,0 +1,77 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp",
+      "type": "com.clint.wxpay.conf.WxPayConfiguration"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxMaConfiguration",
+      "name": "wx.ma",
+      "type": "com.clint.wxpay.conf.WxMaConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.appId",
+      "description": "微信支付商户号",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.mchId",
+      "description": "微信公众号或者小程序等的appid",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.mchKey",
+      "description": "微信支付商户密钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.subAppId",
+      "description": "服务商模式下的子商户公众账号ID，直连模式请不要配置",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.subMchId",
+      "description": "服务商模式下的子商户号，直连模式请不要配置",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxPayConfiguration",
+      "name": "wx.pay.sp.keyPath",
+      "description": "apiclient_cert.p12文件的绝对路径，或者如果放在项目中，请以classpath:开头指定",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxMaConfiguration",
+      "name": "wx.ma.appId",
+      "description": "微信小程序的appid",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxMaConfiguration",
+      "name": "wx.ma.secret",
+      "description": "微信小程序的Secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxMaConfiguration",
+      "name": "wx.ma.token",
+      "description": "微信小程序消息服务器配置的token",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.clint.wxpay.conf.WxMaConfiguration",
+      "name": "wx.ma.aesKey",
+      "description": "微信小程序消息服务器配置的EncodingAESKey",
+      "type": "java.lang.String"
+    }
+  ]
+}

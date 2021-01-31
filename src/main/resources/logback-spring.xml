@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <!-- 属性文件:在properties文件中找到对应的配置项 -->
+    <springProperty scope="context" name="LOG_FILE" source="logging.file.path"/>
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
+    <!--日志文件保存路径-->
+    <property name="LOG_FILE_PATH" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}}"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{MM-dd HH:mm:ss SSS} %-5level [%X{traceId}] [%t] [%logger{32}] - %m%n</Pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+    <!--每天记录日志到文件appender-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_PATH}/${APP_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!--<pattern>${FILE_LOG_PATTERN}</pattern>-->
+            <pattern>%d{MM-dd HH:mm:ss.SSS} %-5level [%X{traceId}] [%t] [%logger{36}] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--输出到logstash的appender-->
+    <!--<appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+    <!--    <destination>localhost:4560</destination>-->
+    <!--    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+    <!--</appender>-->
+
+    <root>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <!--<appender-ref ref="LOGSTASH"/>-->
+    </root>
+</configuration>

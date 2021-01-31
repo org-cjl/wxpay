@@ -1,0 +1,15 @@
+wx:
+  pay:
+    sp:
+      appId: 1
+      mchId: 2
+      mchKey: kda
+      subAppId: 11
+      subMchId: 12
+      keyPath: classpath:/cert/cert.p12
+
+  ma:
+    appId: 122
+    secret: fla
+    token: jjk
+    aesKey: dad
